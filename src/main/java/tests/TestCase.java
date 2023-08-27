@@ -8,18 +8,18 @@ import org.testng.annotations.Test;
 
 public class TestCase {
     WebDriver driver = new FirefoxDriver();
-    HomePage loginhomepage;
+    HomePage home;
     @BeforeMethod
     public void browserSetup() {
-        loginhomepage = new HomePage(driver);
+        home = new HomePage(driver);
         driver.get("https://www.saucedemo.com/");
     }
     @Test
     public void loginTestForInvaildAccount() {
-        loginhomepage.enterUsername("locked_out_user");
-        loginhomepage.enterPassword("secret_sauce");
-        loginhomepage.click();
-        loginhomepage.validatingErrorDisplay("Epic sadface: Sorry, this user has been locked out.");
+        home.enterUsername("locked_out_user");
+        home.enterPassword("secret_sauce");
+        home.click();
+        home.validatingErrorDisplay("Epic sadface: Sorry, this user has been locked out.");
     }
 
     @AfterTest
